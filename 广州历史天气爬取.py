@@ -16,7 +16,7 @@ def get_info():  # 获取到每个城市每天的天气情况,并写入CSV文件
         else:
             severe_weather = '否'  # 若无以上天气情况,则该城市当天不是恶劣天气
         print(date_city, weather, highest_temperature, lowest_temperature, wind, severe_weather, sep="|")
-        with open("广州历史天气数据.csv", 'a', newline="", encoding='utf-8') as f:
+        with open("广州近五年天气数据.csv", 'a', newline="", encoding='utf-8') as f:
             csvwriter = csv.writer(f, delimiter=',')
             csvwriter.writerow([date_city, weather, highest_temperature, lowest_temperature, wind, severe_weather])
             # 将获取到的'日期/城市', '天气', '最高温', '最低温', '风向风力', '是否为恶劣天气'这些数据写入文件
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     driver.get(url)
     driver.maximize_window()
     driver.implicitly_wait(5)
-    with open("广州历史天气数据.csv", 'a', newline="", encoding='utf-8') as f:
+    with open("广州近五年天气数据.csv", 'a', newline="", encoding='utf-8') as f:
         csvwriter = csv.writer(f, delimiter=',')
         csvwriter.writerow(['日期/城市', '天气', '最高温', '最低温', '风向风力', '是否为恶劣天气'])
     main()
